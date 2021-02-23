@@ -1,0 +1,22 @@
+/* nav bar */
+
+.nav-icons i {
+    font-size: 1.4rem;
+}
+
+.down-nav {
+    position: fixed;
+    width: 37%;
+    bottom: 0;
+}
+
+/* small screen */
+
+@media only screen and (max-width: 360px) {
+    .down-nav {
+        position: fixed;
+        width: 100%;
+        bottom: 0;
+        left: 0;
+    }
+}

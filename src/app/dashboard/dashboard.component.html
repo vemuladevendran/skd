@@ -1,0 +1,59 @@
+<div class="container">
+    <div class="row justify-content-center vh-100">
+        <div class="col-12 col-sm-5">
+            <!-- header -->
+            <div class="row">
+                <div class="col-12 header d-flex justify-content-between p-2">
+                    <h1>
+                        Sri Krishna <span style="color: orange;">Dairy</span>
+                    </h1>
+                    <i class="bi bi-bell-fill mt-2"></i>
+                </div>
+            </div>
+
+            <!-- carousel -->
+            <div class="row">
+                <div class="col-12 p-0">
+                    <div id="carousel" class="carousel slide" data-bs-ride="carousel">
+                        <div class="carousel-indicators">
+                            <button type="button" data-bs-target="#carousel" data-bs-slide-to="0" class="active"
+                                aria-current="true" aria-label="Slide 1"></button>
+                            <button type="button" data-bs-target="#carousel" data-bs-slide-to="1"
+                                aria-label="Slide 2"></button>
+                            <button type="button" data-bs-target="#carousel" data-bs-slide-to="2"
+                                aria-label="Slide 3"></button>
+                        </div>
+                        <div class="carousel-inner">
+                            <div class="carousel-item" *ngFor="let i of images; first as isFirst "
+                                [class.active]="isFirst" data-bs-interval="4000">
+                                <img [src]="i" class="d-block w-100 carousel-images" alt="images">
+                            </div>
+                        </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#carousel"
+                            data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#carousel"
+                            data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <!-- details -->
+
+            <h2 class="d-flex justify-content-center sales-header m-3 mb-2">SALES</h2>
+            <!-- list of items -->
+            <div class="list-items row justify-content-around">
+                <a class="col-5 list-products mt-2" [routerLink]="" *ngFor="let p of products; index as i;">
+                    <img [src]="p" alt="sales">
+                    <p class="productsNames text-center">{{productsNames[i]}}</p>
+                </a>
+            </div>
+            <!-- down navbar -->
+          <app-navbar></app-navbar>
+        </div>
+    </div>
+</div>

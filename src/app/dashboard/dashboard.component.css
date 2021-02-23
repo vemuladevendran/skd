@@ -1,0 +1,50 @@
+h1, h2 {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.header {
+    background-color: #ecf0f1;
+}
+
+/* carousel-images */
+
+.carousel-images {
+    height: 10rem;
+}
+
+/* sales */
+
+.list-products {
+    border: 2px solid orange;
+    box-shadow: 3px 3px 3px 3px rgb(214, 202, 202);
+    border-radius: 10px;
+}
+
+.list-products img {
+    width: 8rem;
+    height: 8rem;
+}
+
+.nav-icons i {
+    font-size: 1.4rem;
+}
+
+/* nav bar */
+
+.down-nav {
+    position: fixed;
+    width: 37%;
+    bottom: 0;
+}
+
+/* small screen */
+
+@media only screen and (max-width: 360px) {
+    .down-nav {
+        position: fixed;
+        width: 100%;
+        bottom: 0;
+        left: 0;
+    }
+}
