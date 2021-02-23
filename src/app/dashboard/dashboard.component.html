@@ -47,13 +47,13 @@
             <h2 class="d-flex justify-content-center sales-header m-3 mb-2">SALES</h2>
             <!-- list of items -->
             <div class="list-items row justify-content-around">
-                <a class="col-5 list-products mt-2" [routerLink]="" *ngFor="let p of products; index as i;">
+                <a class="col-5 list-products mt-2" routerLink="{{path[i]}}" *ngFor="let p of products; index as i;">
                     <img [src]="p" alt="sales">
                     <p class="productsNames text-center">{{productsNames[i]}}</p>
                 </a>
             </div>
             <!-- down navbar -->
-          <app-navbar></app-navbar>
+            <app-navbar></app-navbar>
         </div>
     </div>
 </div>

@@ -11,6 +11,7 @@ export class DashboardComponent implements OnInit {
   images = ['assets/image.1.jpg', 'assets/image.2.jpg', 'assets/image.3.jpg'];
   products = ['assets/sales-img.png', 'assets/salesdata-img.jpg', 'assets/customer-img.jpg', 'assets/users-img.png'];
   productsNames = ['SALES', 'SALESDATA', 'CUSTOMER', 'USERS'];
+  path = ['/sales', '/salesdata', '/customers', '/users'];
   constructor() { }
 
   ngOnInit(): void {

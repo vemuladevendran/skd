@@ -9,6 +9,14 @@ import { AppComponent } from './app.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NavbarComponent } from './navbar/navbar.component';
+import { SalesComponent } from './sales/sales.component';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatSelectModule } from '@angular/material/select';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
+import { MatButtonModule } from '@angular/material/button';
+import { SalesdataComponent } from './salesdata/salesdata.component';
 
 const routes: Routes = [
   {
@@ -16,8 +24,16 @@ const routes: Routes = [
     component: DashboardComponent,
   },
   {
+    path: 'sales',
+    component: SalesComponent,
+  },
+  {
+    path: 'salesdata',
+    component: SalesdataComponent,
+  },
+  {
     path: '**',
-    redirectTo: '/dashboard'
+    redirectTo: '/sales'
 
   }
 ];
@@ -26,7 +42,9 @@ const routes: Routes = [
   declarations: [
     AppComponent,
     DashboardComponent,
-    NavbarComponent
+    NavbarComponent,
+    SalesComponent,
+    SalesdataComponent
   ],
   imports: [
     BrowserModule,
@@ -34,6 +52,12 @@ const routes: Routes = [
     BrowserAnimationsModule,
     RouterModule.forRoot(routes),
     ReactiveFormsModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatSelectModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatButtonModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

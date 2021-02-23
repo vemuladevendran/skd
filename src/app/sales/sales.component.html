@@ -1,0 +1,112 @@
+<div class="container">
+    <div class="row justify-content-center vh-100">
+        <div class="col-12 col-sm-5">
+            <!-- header -->
+            <div class="row">
+                <div class="col-12 header d-flex justify-content-between p-2">
+                    <h1>
+                        New Sales <span style="color: orange;">Entry</span>
+                    </h1>
+                    <a class="bi bi-search mt-2 search-icon" routerLink="/salesdata"></a>
+                </div>
+            </div>
+            <!-- data entry form -->
+            <div class="row">
+                <div class="col-12 mt-2">
+                    <form [formGroup]="salesform">
+                        <!-- customer -->
+                        <div>
+                            <label class="h6">select customer</label>
+                            <mat-form-field appearance="outline" class="w-100">
+                                <mat-label>customer</mat-label>
+                                <mat-select formControlName="customer">
+                                    <mat-option *ngFor="let c of customers" [value]="c">{{c}}</mat-option>
+                                </mat-select>
+                            </mat-form-field>
+                        </div>
+                        <!-- date invoice -->
+                        <div class="row">
+                            <!-- date -->
+                            <div class="col-6">
+                                <label class="h6">select date</label>
+                                <mat-form-field appearance="outline" class="w-100">
+                                    <mat-label>Choose a date</mat-label>
+                                    <input matInput [matDatepicker]="picker" formControlName="salesdate" readonly>
+                                    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                                    <mat-datepicker #picker></mat-datepicker>
+                                </mat-form-field>
+
+                            </div>
+                            <!-- invoice -->
+                            <div class="col-6">
+                                <label class="h6">invoice number</label>
+                                <mat-form-field appearance="outline" class="w-100">
+                                    <mat-label>invoice</mat-label>
+                                    <input matInput placeholder="invoice" type="number" formControlName='invoiceNumber'
+                                        min="0">
+                                </mat-form-field>
+                            </div>
+                        </div>
+                        <!-- milk details -->
+                        <fieldset formGroupName="milk">
+                            <legend class="text-primary">MILK <img src="assets/milk.png" alt="milk"></legend>
+                            <div class="row">
+                                <!-- milk liters -->
+                                <div class="col-6">
+                                    <label class="h6">No Of Liters</label>
+                                    <mat-form-field appearance="outline" class="w-100">
+                                        <mat-label>No Of Liters</mat-label>
+                                        <input matInput placeholder="liters" type="number" formControlName='liters'
+                                            min="0">
+                                    </mat-form-field>
+                                </div>
+                                <!-- milk price -->
+                                <div class="col-6">
+                                    <label class="h6">price</label>
+                                    <mat-form-field appearance="outline" class="w-100">
+                                        <mat-label>price</mat-label>
+                                        <input matInput placeholder="price" type="number" formControlName='unitPrice'
+                                            min="0">
+                                    </mat-form-field>
+                                </div>
+                            </div>
+                        </fieldset>
+                        <!-- curd details -->
+                        <fieldset formGroupName="curd">
+                            <legend class="text-primary">CURD <img src="assets/curd.jpg" alt="curd"></legend>
+                            <div class="row">
+                                <!-- curd liters -->
+                                <div class="col-6">
+                                    <label class="h6">No Of Liters</label>
+                                    <mat-form-field appearance="outline" class="w-100">
+                                        <mat-label>No Of Liters</mat-label>
+                                        <input matInput placeholder="liters" type="number" formControlName='liters'
+                                            min="0">
+                                    </mat-form-field>
+                                </div>
+                                <!-- curd price -->
+                                <div class="col-6">
+                                    <label class="h6">price</label>
+                                    <mat-form-field appearance="outline" class="w-100">
+                                        <mat-label>price</mat-label>
+                                        <input matInput placeholder="price" type="number" formControlName='unitPrice'
+                                            min="0">
+                                    </mat-form-field>
+                                </div>
+                            </div>
+                        </fieldset>
+                        <div class="row">
+                            <div class="col-6"></div>  
+                            <div class="col-6">
+                                <button type="submit"class="float-end" mat-raised-button color="primary"[disabled]="salesform.invalid">Save</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <!-- down navbar -->
+            <app-navbar></app-navbar>
+        </div>
+    </div>
+</div>

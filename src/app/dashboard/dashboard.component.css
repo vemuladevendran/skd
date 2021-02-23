@@ -1,12 +1,3 @@
-h1, h2 {
-    font-size: 1.5rem;
-    font-weight: bold;
-}
-
-.header {
-    background-color: #ecf0f1;
-}
-
 /* carousel-images */
 
 .carousel-images {
@@ -24,27 +15,4 @@ h1, h2 {
 .list-products img {
     width: 8rem;
     height: 8rem;
-}
-
-.nav-icons i {
-    font-size: 1.4rem;
-}
-
-/* nav bar */
-
-.down-nav {
-    position: fixed;
-    width: 37%;
-    bottom: 0;
-}
-
-/* small screen */
-
-@media only screen and (max-width: 360px) {
-    .down-nav {
-        position: fixed;
-        width: 100%;
-        bottom: 0;
-        left: 0;
-    }
 }

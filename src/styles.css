@@ -8,8 +8,19 @@ a {
     text-decoration: none !important;
 }
 
+h1, h2 {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.header {
+    background-color: #ecf0f1;
+}
+
 body {
     margin: 0;
     font-family: Roboto, "Helvetica Neue", sans-serif;
     background-color: #f7f9f9;
 }
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
