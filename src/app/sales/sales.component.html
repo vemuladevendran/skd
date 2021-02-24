@@ -19,8 +19,10 @@
                             <label class="h6">select customer</label>
                             <mat-form-field appearance="outline" class="w-100">
                                 <mat-label>customer</mat-label>
-                                <mat-select formControlName="customer">
-                                    <mat-option *ngFor="let c of customers" [value]="c">{{c}}</mat-option>
+                                <mat-select formControlName="customer"
+                                    (selectionChange)="onCustomerSelectionChange($event)">
+                                    <mat-option *ngFor="let c of customerdata" [value]="c.customerName">
+                                        {{c.customerName}}</mat-option>
                                 </mat-select>
                             </mat-form-field>
                         </div>
@@ -96,9 +98,10 @@
                             </div>
                         </fieldset>
                         <div class="row">
-                            <div class="col-6"></div>  
+                            <div class="col-6"></div>
                             <div class="col-6">
-                                <button type="submit"class="float-end mb-5" mat-raised-button color="primary"[disabled]="salesform.invalid">Save</button>
+                                <button type="submit" class="float-end mb-5" mat-raised-button color="primary"
+                                    [disabled]="salesform.invalid">Save</button>
                             </div>
                         </div>
                     </form>

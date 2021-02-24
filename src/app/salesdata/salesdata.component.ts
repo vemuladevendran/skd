@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { CustomersService } from '../customers.service';
 
 @Component({
   selector: 'app-salesdata',
@@ -8,10 +9,11 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 export class SalesdataComponent implements OnInit {
   salesdataform: FormGroup;
-  customers = ['brk', 'frfifj', 'ffj', 'jkkrhj'];
-
+  // customers = ['brk', 'frfifj', 'ffj', 'jkkrhj'];
+userdata = this.customersServices.customerlist;
   constructor(
     private fb: FormBuilder,
+    private customersServices: CustomersService,
   ) {
     this.salesdataform = this.fb.group({
    customer: ['', Validators.required],

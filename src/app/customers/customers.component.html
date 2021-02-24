@@ -1,1 +1,47 @@
-<p>customers works!</p>
+<div class="container">
+    <div class="row justify-content-center vh-100">
+        <div class="col-12 col-sm-5">
+            <!-- header -->
+            <div class="row">
+                <div class="col-12 header d-flex justify-content-between p-2">
+                    <h1>
+                        Customer <span style="color: orange;">List</span>
+                    </h1>
+                    <button mat-raised-button color="primary" routerLink="new">Add Customer</button>
+                </div>
+            </div>
+            <!-- table -->
+            <div class="row">
+                <div class="col-12 mt-2">
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">CustomerName</th>
+                                <th scope="col">Mobile</th>
+                                <th scope="col">Email</th>
+                                <th scope="col">Milk(&#8377;)</th>
+                                <th scope="col">curd(&#8377;)</th>
+                                <th scope="col">Edit</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let detail of tabledata; index as i;">
+                                <th>{{i + 1}}</th>
+                                <td class="text-center">{{detail.customerName}}</td>
+                                <td>{{detail.mobile}}</td>
+                                <td>{{detail.email}}</td>
+                                <td class="text-center">{{detail.milkprice}}</td>
+                                <td class="text-center">{{detail.curdprice}}</td>
+                                <td class="d-flex">
+                                    <a class="bi bi-pen-fill me-2"></a>
+                                    <a class="bi bi-trash-fill ms-2"></a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
