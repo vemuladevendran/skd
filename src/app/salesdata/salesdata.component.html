@@ -1,1 +1,66 @@
-<p>salesdata works!</p>
+<div class="container">
+    <div class="row justify-content-center vh-100">
+        <div class="col-12 col-sm-5">
+            <!-- header -->
+            <div class="row">
+                <div class="col-12 header d-flex justify-content-between p-2">
+                    <h1>
+                        Sales <span style="color: orange;">Data</span>
+                    </h1>
+                    <a class="bi bi-plus-square header-icon mt-1" routerLink="/sales"></a>
+                </div>
+            </div>
+            <!-- data entry form -->
+            <div class="row">
+                <div class="col-12 mt-2">
+                    <form [formGroup]="salesdataform">
+                        <!-- customer -->
+                        <div>
+                            <label class="h6">select customer</label>
+                            <mat-form-field appearance="outline" class="w-100">
+                                <mat-label>customer</mat-label>
+                                <mat-select formControlName="customer">
+                                    <mat-option *ngFor="let c of customers" [value]="c">{{c}}</mat-option>
+                                </mat-select>
+                            </mat-form-field>
+                        </div>
+                        <!-- date -->
+                        <fieldset formGroupName="salesdatadate">
+                            <div class="row">
+                                <!-- from date -->
+                                <div class="col-6">
+                                    <label class="h6">From Date</label>
+                                    <mat-form-field appearance="outline" class="w-100">
+                                        <mat-label>FROM</mat-label>
+                                        <input matInput [matDatepicker]="picker1" formControlName="from" readonly>
+                                        <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+                                        <mat-datepicker #picker1></mat-datepicker>
+                                    </mat-form-field>
+
+                                </div>
+                                <!-- to date -->
+                                <div class="col-6">
+                                    <label class="h6">To Date</label>
+                                    <mat-form-field appearance="outline" class="w-100">
+                                        <mat-label>TO</mat-label>
+                                        <input matInput [matDatepicker]="picker2" formControlName="to" readonly>
+                                        <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+                                        <mat-datepicker #picker2></mat-datepicker>
+                                    </mat-form-field>
+                                </div>
+                            </div>
+                        </fieldset>
+
+                        <div class="row">
+                            <div class="col-6"></div>
+                            <div class="col-6">
+                                <button type="submit" class="float-end" mat-raised-button color="primary"
+                                    [disabled]="salesdataform.invalid">Search</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

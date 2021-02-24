@@ -1,3 +1,10 @@
+/* hesder profile */
+
+.header img {
+    width: 3rem;
+    border-radius: 50%;
+}
+
 /* carousel-images */
 
 .carousel-images {

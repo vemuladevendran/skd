@@ -12,7 +12,7 @@ import { MatInputModule } from '@angular/material/input';
 export class SalesComponent implements OnInit {
   customers = ['deva', 'asd', 'vhhh'];
   salesform: FormGroup;
-
+  data = '';
   constructor(
     private fb: FormBuilder,
   ) {
@@ -34,6 +34,10 @@ export class SalesComponent implements OnInit {
 
 
   ngOnInit(): void {
+  }
+
+  handlesubmit(): any {
+    this.data = this.salesform.value;
   }
 
 }
