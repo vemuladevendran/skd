@@ -1,6 +1,6 @@
 <div class="container">
     <div class="row justify-content-center vh-100">
-        <div class="col-12 col-sm-5">
+        <div class="col-12 col-sm-8">
             <!-- header -->
             <div class="row">
                 <div class="col-12 header d-flex justify-content-between p-2">
@@ -13,7 +13,7 @@
             <!-- data entry form -->
             <div class="row">
                 <div class="col-12 mt-2">
-                    <form [formGroup]="salesform" (ngSubmit)="handlesubmit()">
+                    <form [formGroup]="salesform" (ngSubmit)="handleSubmit()">
                         <!-- customer -->
                         <div>
                             <label class="h6">select customer</label>
@@ -51,7 +51,12 @@
                         </div>
                         <!-- milk details -->
                         <fieldset formGroupName="milk">
-                            <legend class="text-primary">MILK <img src="assets/milk.png" alt="milk"></legend>
+                            <legend class="text-primary">MILK <img src="assets/milk.png" alt="milk">
+                                <span class="text-success h4">
+                                    {{ (salesform.get('milk')?.get('unitPrice')?.value *
+                                    salesform.get('milk')?.get('liters')?.value) | currency : 'INR' }}
+                                </span>
+                            </legend>
                             <div class="row">
                                 <!-- milk liters -->
                                 <div class="col-6">
@@ -59,7 +64,7 @@
                                     <mat-form-field appearance="outline" class="w-100">
                                         <mat-label>No Of Liters</mat-label>
                                         <input matInput placeholder="liters" type="number" formControlName='liters'
-                                            min="0">
+                                            min="0" value="">
                                     </mat-form-field>
                                 </div>
                                 <!-- milk price -->
@@ -75,7 +80,11 @@
                         </fieldset>
                         <!-- curd details -->
                         <fieldset formGroupName="curd">
-                            <legend class="text-primary">CURD <img src="assets/curd.jpg" alt="curd"></legend>
+                            <legend class="text-primary">CURD <img src="assets/curd.jpg" alt="curd">
+                                <span class="text-success h4">
+                                    {{ (salesform.get('curd')?.get('unitPrice')?.value *
+                                    salesform.get('curd')?.get('liters')?.value) | currency : 'INR' }}
+                                </span></legend>
                             <div class="row">
                                 <!-- curd liters -->
                                 <div class="col-6">
@@ -98,7 +107,13 @@
                             </div>
                         </fieldset>
                         <div class="row">
-                            <div class="col-6"></div>
+                            <div class="col-6">
+                                <span class="text-success h4">
+                                   Total-price :  {{ ((salesform.get('curd')?.get('unitPrice')?.value *
+                                    salesform.get('curd')?.get('liters')?.value)) + ((salesform.get('milk')?.get('unitPrice')?.value *
+                                    salesform.get('milk')?.get('liters')?.value)) | currency : 'INR' }}
+                                </span> 
+                            </div>
                             <div class="col-6">
                                 <button type="submit" class="float-end mb-5" mat-raised-button color="primary"
                                     [disabled]="salesform.invalid">Save</button>

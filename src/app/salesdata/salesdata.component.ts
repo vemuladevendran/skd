@@ -10,7 +10,7 @@ import { CustomersService } from '../customers.service';
 export class SalesdataComponent implements OnInit {
   salesdataform: FormGroup;
   // customers = ['brk', 'frfifj', 'ffj', 'jkkrhj'];
-userdata = this.customersServices.customerlist;
+userdata = this.customersServices.customers;
   constructor(
     private fb: FormBuilder,
     private customersServices: CustomersService,

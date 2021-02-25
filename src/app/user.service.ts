@@ -4,11 +4,18 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class UserService {
-  userlist: any[] = [];
+  userlist: any[] = this.users || [];
+  key = 'USER_DATA';
 
   constructor() { }
 
   addUerDetails(data: any): void {
     this.userlist.push(data);
+    localStorage.setItem(this.key, JSON.stringify(this.userlist));
+  }
+
+  get users(): any {
+    const data: any = localStorage.getItem(this.key);
+    return JSON.parse(data);
   }
 }

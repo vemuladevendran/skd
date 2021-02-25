@@ -1,3 +1,4 @@
+import { stringify } from '@angular/compiler/src/util';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -17,7 +18,7 @@ export class AddCustomersComponent implements OnInit {
   ) {
     this.newcustomer = this.fb.group({
       customerName: ['deva', Validators.required],
-      mobile: ['1234567890', [Validators.required, Validators.min(10)]],
+      mobile: ['1234567890', [Validators.required, Validators.minLength(10)]],
       email: ['devendranvemula@gmail.com'],
       milkprice: ['0', [Validators.required, Validators.min(0)]],
       curdprice: ['0', [Validators.required, Validators.min(0)]],
@@ -31,7 +32,6 @@ export class AddCustomersComponent implements OnInit {
 
   handlesubmit(): any {
     this.customersService.addCustomerDetails(this.newcustomer.value);
-    console.log(this.newcustomer.value);
     this.router.navigate(['/customers']);
   }
 

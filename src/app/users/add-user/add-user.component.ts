@@ -16,7 +16,7 @@ export class AddUserComponent implements OnInit {
   ) {
     this.newuser = this.fb.group({
       username: ['deva', Validators.required],
-      mobile: ['234567890', [Validators.required, Validators.min(10)]],
+      mobile: ['23456789550', [Validators.required, Validators.minLength(10)]],
       email: ['devendranvemula@gmail.com', Validators.email],
       usertype: ['', Validators.required],
       password: ['7457', Validators.required],

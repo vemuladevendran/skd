@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
-import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatInputModule } from '@angular/material/input';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { CustomersService } from '../customers.service';
 
 
@@ -13,7 +11,7 @@ import { CustomersService } from '../customers.service';
 export class SalesComponent implements OnInit {
   data = '';
   salesform: FormGroup;
-  customerdata = this.customersService.customerlist;
+  customerdata = this.customersService.customers;
   constructor(
     private fb: FormBuilder,
     private customersService: CustomersService,
@@ -25,7 +23,7 @@ export class SalesComponent implements OnInit {
       invoiceNumber: ['', Validators.required],
       milk: this.fb.group({
         liters: [0, [Validators.required, Validators.min(0)]],
-        unitPrice: [1, [Validators.required, Validators.min(0)]]
+        unitPrice: [0, [Validators.required, Validators.min(0)]]
       }),
       curd: this.fb.group({
         liters: [0, [Validators.required, Validators.min(0)]],
@@ -36,15 +34,20 @@ export class SalesComponent implements OnInit {
 
 
   ngOnInit(): void {
+
   }
 
   onCustomerSelectionChange(event: any): void {
-    const customer = this.customerdata.find(c => c.customerName === event.value);
-    this.salesform.get('milkk')?.get('unitPrice')?.setValue(customer?.milkprice);
+    const customer = this.customerdata.find((c: { customerName: any; }) => c.customerName === event.value);
+    // const customer = this.customerdata.find(c => c.customerName === event.value);
+    this.salesform.get('milk')?.get('unitPrice')?.setValue(customer?.milkprice);
     this.salesform.get('curd')?.get('unitPrice')?.setValue(customer?.curdprice);
+
   }
 
-  handlesubmit(): any {
+
+
+  handleSubmit(): any {
     this.data = this.salesform.value;
   }
 

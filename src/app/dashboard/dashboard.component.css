@@ -8,7 +8,7 @@
 /* carousel-images */
 
 .carousel-images {
-    height: 10rem;
+    height: 13rem;
 }
 
 /* sales */
@@ -22,4 +22,13 @@
 .list-products img {
     width: 8rem;
     height: 8rem;
+}
+
+/* small screen */
+
+@media only screen and (max-width: 360px) {
+
+    .carousel-images {
+        height: 10rem;
+    }
 }

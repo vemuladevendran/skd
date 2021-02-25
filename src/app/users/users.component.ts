@@ -7,7 +7,7 @@ import { UserService} from '../user.service';
   styleUrls: ['./users.component.css']
 })
 export class UsersComponent implements OnInit {
-  tabledata = this.userservice.userlist;
+  tabledata = this.userservice.users;
   constructor(
     private userservice: UserService,
    )

@@ -9,7 +9,7 @@ import { CustomersService } from '../customers.service';
   styleUrls: ['./customers.component.css']
 })
 export class CustomersComponent implements OnInit {
-  tabledata = this.customersService.customerlist;
+  tabledata = this.customersService.customers;
   constructor(
     private router: Router,
     private fb: FormBuilder,
