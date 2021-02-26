@@ -116,7 +116,9 @@
                             </div>
                             <div class="col-6">
                                 <button type="submit" class="float-end mb-5" mat-raised-button color="primary"
-                                    [disabled]="salesform.invalid">Save</button>
+                                    [disabled]="salesform.invalid || (((salesform.get('curd')?.get('unitPrice')?.value *
+                                    salesform.get('curd')?.get('liters')?.value)) + ((salesform.get('milk')?.get('unitPrice')?.value *
+                                    salesform.get('milk')?.get('liters')?.value)) == 0)">Save</button>
                             </div>
                         </div>
                     </form>

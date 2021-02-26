@@ -2,6 +2,7 @@ import { Component, OnInit, } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { CustomersService } from '../customers.service';
 import { formatDate } from '@angular/common';
+import { SalesdataService } from '../salesdata.service';
 
 
 @Component({
@@ -16,6 +17,7 @@ export class SalesComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private customersService: CustomersService,
+    private salesdataService: SalesdataService,
   ) {
     // salesform validators
     this.salesform = this.fb.group({
@@ -50,6 +52,11 @@ export class SalesComponent implements OnInit {
 
   handleSubmit(): any {
     this.data = this.salesform.value;
+    this.salesdataService.customerSalesData(this.salesform.value);
+    this.salesform.get('invoiceNumber')?.reset();
+    this.salesform.get('invoiceNumber')?.setErrors(null);
+    this.salesform.get('milk')?.get('liters')?.setValue(0);
+    this.salesform.get('curd')?.get('liters')?.setValue(0);
   }
 
 }
