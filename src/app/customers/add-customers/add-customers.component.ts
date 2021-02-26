@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { CustomersService } from 'src/app/customers.service';
+import { v4 as uuidv4 } from 'uuid';
 
 @Component({
   selector: 'app-add-customers',
@@ -31,7 +32,9 @@ export class AddCustomersComponent implements OnInit {
   }
 
   handlesubmit(): any {
-    this.customersService.addCustomerDetails(this.newcustomer.value);
+    const data = this.newcustomer.value;
+    data.id = uuidv4();
+    this.customersService.addCustomerDetails(data);
     this.router.navigate(['/customers']);
   }
 

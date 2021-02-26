@@ -14,7 +14,7 @@ export class UsersComponent implements OnInit {
    { }
 
   ngOnInit(): void {
-    console.log(this.tabledata);
+    // console.log(this.tabledata);
   }
 
 }

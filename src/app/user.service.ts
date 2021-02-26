@@ -14,6 +14,10 @@ export class UserService {
     localStorage.setItem(this.key, JSON.stringify(this.userlist));
   }
 
+  updateUserDetails(updateUserdata: any): any {
+    localStorage.setItem(this.key, JSON.stringify(updateUserdata));
+  }
+
   get users(): any {
     const data: any = localStorage.getItem(this.key);
     return JSON.parse(data);

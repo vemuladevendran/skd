@@ -21,7 +21,7 @@
                                 <mat-label>customer</mat-label>
                                 <mat-select formControlName="customer"
                                     (selectionChange)="onCustomerSelectionChange($event)">
-                                    <mat-option *ngFor="let c of customerdata" [value]="c.customerName">
+                                    <mat-option *ngFor="let c of customerdata" [value]="c.id">
                                         {{c.customerName}}</mat-option>
                                 </mat-select>
                             </mat-form-field>

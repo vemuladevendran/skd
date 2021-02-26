@@ -13,6 +13,10 @@ export class CustomersService {
     localStorage.setItem(this.key, JSON.stringify(this.customerlist));
   }
 
+  updateCustomerDetails(updatedCustomerList: any): void {
+    localStorage.setItem(this.key, JSON.stringify(updatedCustomerList));
+  }
+
   get customers(): any {
     const data: any = localStorage.getItem(this.key);
     return JSON.parse(data);

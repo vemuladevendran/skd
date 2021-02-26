@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { CustomersService } from '../customers.service';
+import { formatDate } from '@angular/common';
 
 
 @Component({
@@ -19,7 +20,7 @@ export class SalesComponent implements OnInit {
     // salesform validators
     this.salesform = this.fb.group({
       customer: ['', Validators.required],
-      salesdate: ['', Validators.required],
+      salesdate: [new Date(), Validators.required],
       invoiceNumber: ['', Validators.required],
       milk: this.fb.group({
         liters: [0, [Validators.required, Validators.min(0)]],
@@ -38,7 +39,7 @@ export class SalesComponent implements OnInit {
   }
 
   onCustomerSelectionChange(event: any): void {
-    const customer = this.customerdata.find((c: { customerName: any; }) => c.customerName === event.value);
+    const customer = this.customerdata.find((c: any) => c.id === event.value);
     // const customer = this.customerdata.find(c => c.customerName === event.value);
     this.salesform.get('milk')?.get('unitPrice')?.setValue(customer?.milkprice);
     this.salesform.get('curd')?.get('unitPrice')?.setValue(customer?.curdprice);

@@ -2,6 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { UserService} from 'src/app/user.service';
+import { v4 as uuidv4 } from 'uuid';
 @Component({
   selector: 'app-add-user',
   templateUrl: './add-user.component.html',
@@ -26,8 +27,9 @@ export class AddUserComponent implements OnInit {
   ngOnInit(): void {
 
   }
-  handlesubmit(): any {
+  handleSubmit(): any {
     const details = this.newuser.value;
+    details.id = uuidv4();
     this.userservice.addUerDetails(details);
     this.router.navigate(['users']);
     // console.log(details);

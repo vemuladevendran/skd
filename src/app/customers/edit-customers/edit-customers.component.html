@@ -1,1 +1,86 @@
-<p>edit-customers works!</p>
+<div class="container">
+    <div class="row justify-content-center vh-100">
+        <div class="col-12 col-sm-8">
+            <!-- header -->
+            <div class="row">
+                <div class="col-12 header d-flex justify-content-between p-2">
+                    <a class="bi bi-arrow-left-circle-fill header-icon mt-1" routerLink="/customers"></a>
+                    <h1>
+                        Edit <span style="color: orange;">Customer</span>
+                    </h1>
+                </div>
+            </div>
+            <!-- data entry form -->
+            <div class="row">
+                <div class="col-12 mt-2">
+                    <form [formGroup]="editCustomer" (ngSubmit)="handleSubmit()">
+                        <div>
+                            <label>name</label>
+                            <mat-form-field class="example-full-width w-100" appearance="outline">
+                                <mat-label>customer Name</mat-label>
+                                <input type="text" matInput value="" formControlName="customerName" >
+                            </mat-form-field>
+                        </div>
+                        <div>
+                            <label>mobile number</label>
+                            <mat-form-field class="example-full-width w-100" appearance="outline">
+                                <mat-label>Telephone</mat-label>
+                                <span matPrefix>+91 &nbsp;</span>
+                                <input type="tel" matInput placeholder="555-555-1234" minlength="10" formControlName="mobile">
+                            </mat-form-field>
+                        </div>
+                        <div>
+                            <label>e-mail</label>
+                            <mat-form-field appearance="outline" class="w-100">
+                                <mat-label>Enter your email</mat-label>
+                                <input matInput placeholder="abc@example.com" formControlName="email">
+                                <!-- <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error> -->
+                            </mat-form-field>
+                        </div>
+                        <!-- price -->
+                        <div class="d-flex col-12 justify-content-between">
+                           <div class="col-6">
+                            <label>milk pricr(1 liter)</label>
+                            <mat-form-field appearance="outline" class="w-100">
+                                <mat-label>milkprice</mat-label>
+                                <input matInput placeholder="price" type="number" formControlName="milkprice"
+                                    min="0">
+                            </mat-form-field>
+                           </div>
+                           <div class="col-6">
+                            <label>curd pricr(1 liter)</label>
+                            <mat-form-field appearance="outline" class="w-100">
+                                <mat-label>curdprice</mat-label>
+                                <input matInput placeholder="price" type="number" formControlName="curdprice"
+                                    min="0">
+                            </mat-form-field>
+                           </div>
+                        </div>
+                        <!-- address -->
+                        <div class="d-flex col-12 justify-content-between">
+                            <div class="col-3">
+                             <label>Door No</label>
+                             <mat-form-field appearance="outline" class="w-100">
+                                 <mat-label>door no</mat-label>
+                                 <input matInput placeholder="door no" type="number" formControlName="doorNumber"
+                                     min="0">
+                             </mat-form-field>
+                            </div>
+                            <div class="col-9">
+                             <label>place</label>
+                             <mat-form-field class="example-full-width w-100" appearance="outline">
+                                <mat-label>address</mat-label>
+                                <input type="text" matInput value="" formControlName="place" >
+                            </mat-form-field>
+                            </div>
+                         </div>
+                        <div>
+                            <button mat-raised-button color="primary" class="float-end mb-5"
+                                [disabled]="editCustomer.invalid">Save</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -25,14 +25,14 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr *ngFor="let detail of tabledata; index as i;">
+                            <tr *ngFor="let details of tabledata; index as i;">
                                 <th>{{i + 1}}</th>
-                                <td>{{detail.username}}</td>
-                                <td>{{detail.mobile}}</td>
-                                <td>{{detail.email}}</td>
-                                <td>{{detail.usertype}}</td>
+                                <td>{{details.username}}</td>
+                                <td>{{details.mobile}}</td>
+                                <td>{{details.email}}</td>
+                                <td>{{details.usertype}}</td>
                                 <td class="d-flex">
-                                    <a class="bi bi-pen-fill me-2"></a>
+                                    <a class="bi bi-pen-fill me-2" [routerLink]="[details.id, 'edit']"></a>
                                     <a class="bi bi-trash-fill ms-2"></a>
                                 </td>
                             </tr>

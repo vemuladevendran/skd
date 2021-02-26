@@ -1,1 +1,69 @@
-<p>edit-user works!</p>
+<div class="container">
+    <div class="row justify-content-center vh-100">
+        <div class="col-12 col-sm-8">
+            <!-- header -->
+            <div class="row">
+                <div class="col-12 header d-flex justify-content-between p-2">
+                    <a class="bi bi-arrow-left-circle-fill header-icon mt-1" routerLink="/users"></a>
+                    <h1>
+                        Edit <span style="color: orange;">User</span>
+                    </h1>
+                </div>
+            </div>
+            <!-- data entry form -->
+            <div class="row">
+                <div class="col-12 mt-2">
+                    <form [formGroup]="edituser" (ngSubmit)="handleSubmit()">
+                        <div>
+                            <label>name</label>
+                            <mat-form-field class="example-full-width w-100" appearance="outline">
+                                <mat-label>User Name</mat-label>
+                                <input type="text" matInput value="" formControlName="username">
+                            </mat-form-field>
+                        </div>
+                        <div>
+                            <label>mobile number</label>
+                            <mat-form-field class="example-full-width w-100" appearance="outline">
+                                <mat-label>Telephone</mat-label>
+                                <span matPrefix>+91 &nbsp;</span>
+                                <input type="tel" matInput placeholder="555-555-1234" formControlName="mobile" minlength="10">
+                            </mat-form-field>
+                        </div>
+                        <div>
+                            <label>e-mail</label>
+                            <mat-form-field appearance="outline" class="w-100">
+                                <mat-label>Enter your email</mat-label>
+                                <input matInput placeholder="abc@example.com" formControlName="email">
+                                <!-- <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error> -->
+                            </mat-form-field>
+                        </div>
+                        <div>
+                            <label>user role</label>
+                            <div class="border border-2 rounded p-2">
+                                <mat-radio-group aria-label="Select the user type" formControlName="usertype">
+                                    <mat-radio-button value="Admin" class="me-5">Admin</mat-radio-button>
+                                    <mat-radio-button value="NormalUser">NormalUser</mat-radio-button>
+                                </mat-radio-group>
+                            </div>
+                        </div>
+                        <div class="mt-2">
+                            <label>
+                                password
+                            </label>
+                            <mat-form-field class="example-full-width w-100" appearance="outline">
+                                <mat-label>Password</mat-label>
+                                <input type="password" matInput value="" formControlName='password'>
+                            </mat-form-field>
+                        </div>
+                        <div>
+                            <button mat-raised-button color="primary" class="float-end mb-5"
+                                [disabled]="edituser.invalid">Save</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+</div>
