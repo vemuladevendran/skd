@@ -58,5 +58,4 @@ export class SalesComponent implements OnInit {
     this.salesform.get('milk')?.get('liters')?.setValue(0);
     this.salesform.get('curd')?.get('liters')?.setValue(0);
   }
-
 }

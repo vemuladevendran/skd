@@ -13,14 +13,14 @@
             <!-- data entry form -->
             <div class="row">
                 <div class="col-12 mt-2">
-                    <form [formGroup]="salesdataform">
+                    <form [formGroup]="salesdataform" (ngSubmit)="handleSubmit()">
                         <!-- customer -->
                         <div>
                             <label class="h6">select customer</label>
                             <mat-form-field appearance="outline" class="w-100">
                                 <mat-label>customer</mat-label>
                                 <mat-select formControlName="customer">
-                                    <mat-option *ngFor="let c of userdata" [value]="c.customerName">{{c.customerName}}</mat-option>
+                                    <mat-option *ngFor="let c of userdata" [value]="c.id">{{c.customerName}}</mat-option>
                                 </mat-select>
                             </mat-form-field>
                         </div>

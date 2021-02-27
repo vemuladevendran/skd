@@ -22,6 +22,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
 import { SidenavbarComponent } from './sidenavbar/sidenavbar.component';
+import { SalesbillComponent } from './salesbill/salesbill.component';
 const routes: Routes = [
   {
     path: 'dashboard',
@@ -49,7 +50,8 @@ const routes: Routes = [
     NavbarComponent,
     SalesComponent,
     SalesdataComponent,
-    SidenavbarComponent
+    SidenavbarComponent,
+    SalesbillComponent
   ],
   imports: [
     BrowserModule,
