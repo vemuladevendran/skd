@@ -1,5 +1,7 @@
+import { query } from '@angular/animations';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { CustomersService } from '../customers.service';
 import { SalesdataService } from '../salesdata.service';
 
@@ -11,36 +13,34 @@ import { SalesdataService } from '../salesdata.service';
 export class SalesdataComponent implements OnInit {
   salesdataform: FormGroup;
   // customers = ['brk', 'frfifj', 'ffj', 'jkkrhj'];
-userdata = this.customersServices.customers;
+  userdata = this.customersServices.customers;
   constructor(
+    private router: Router,
     private fb: FormBuilder,
     private customersServices: CustomersService,
     private salesdataServices: SalesdataService,
   ) {
     this.salesdataform = this.fb.group({
-   customer: ['', Validators.required],
-   salesdatadate: this.fb.group({
-     from: ['', Validators.required],
-     to: ['', Validators.required],
-   })
+      customer: ['', Validators.required],
+      salesdatadate: this.fb.group({
+        from: ['', Validators.required],
+        to: ['', Validators.required],
+      })
     });
   }
 
   ngOnInit(): void {
+    // console.log(this.userdata);
   }
 
   handleSubmit(): any {
-    // this.salesdataServices.requiredSalesData(this.salesdataform.value);
-    // console.log(this.salesdataform.value);
-    const data = this.salesdataServices.getSalesData();
-    const searchResults = data.filter(sales => {
-      // console.dir(sales);
-      const isCustomerIdMatched = sales.customer === this.salesdataform.value.customer;
-      const { from, to } = this.salesdataform.value.salesdatadate;
-      const isBetweenDateRange = (new Date(sales.salesdate) >= from) && (new Date(sales.salesdate) <= to);
-      return isCustomerIdMatched && isBetweenDateRange;
-    });
+    const {
+      customer,
+      salesdatadate: { from, to }
+    } = this.salesdataform.value;
+    this.router.navigate(['salesbill'], { queryParams: { customer, from, to } });
 
-    console.log(searchResults);
+
+    // console.log(searchResults);
   }
 }

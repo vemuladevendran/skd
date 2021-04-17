@@ -1,0 +1,120 @@
+.pdf-banner-image {
+    width: 100%;
+}
+
+.pdf-header {
+    /* Hide on normal display and show it when print */
+    /* display: none; */
+    height: 210px;
+    border-bottom: 2px solid #402373;
+}
+
+.pdf-footer {
+    /* Hide on normal display and show it when print */
+    display: none;
+    border-top: 2px solid #402373;
+    color: #255b30;
+}
+
+.pdf-footer>div {
+    font-size: 1.3rem;
+}
+
+.pdf-banner-title {
+    --title-blue-bg: #402373;
+    --banner-main-title-font-size: 3rem;
+    --banner-sub-title-font-size: 1rem;
+}
+
+.pdf-banner-title .title-ovel {
+    background-color: var(--title-blue-bg);
+    border-radius: 100px / 50px;
+    height: 90px;
+    text-align: center;
+    line-height: 1.8;
+    width: 180px;
+    top: 0;
+    font-size: var(--banner-main-title-font-size);
+}
+
+.pdf-banner-title .title-rectangle {
+    background-color: var(--title-blue-bg);
+    top: 77px;
+    text-align: center;
+    font-size: var(--banner-main-title-font-size);
+    line-height: 1.3;
+}
+
+.pdf-banner-title .sub-title-1 {
+    top: 146px;
+    color: #255b30;
+    text-transform: capitalize;
+    font-size: var(--banner-sub-title-font-size);
+}
+
+.pdf-banner-title .sub-title-2 {
+    background-color: var(--title-blue-bg);
+    top: 170px;
+    text-transform: capitalize;
+    font-size: var(--banner-sub-title-font-size);
+}
+
+.banner-mobile-section {
+    font-size: 2rem;
+    color: #255b30;
+    left: 40px;
+    top: 20px;
+}
+
+.banner-mobile-section>.mobile-title {
+    font-size: inherit;
+    width: 25%;
+}
+
+.banner-mobile-section>.mobile-numbers p {
+    font-size: inherit;
+    width: 75%;
+    margin: 0;
+    padding: 0;
+}
+
+@media print {
+    .hide-on-print {
+        display: none;
+    }
+    .pdf-header {
+        width: 92%;
+        display: flex;
+        margin-left: -50px;
+        height: 200px;
+    }
+    .pdf-footer {
+        display: flex;
+        position: absolute;
+        bottom: 0;
+    }
+    .pdf-banner-title {
+        left: 50px;
+    }
+    .title-rectangle {
+        width: 370px;
+    }
+    .sub-title-1 {
+        width: 400px;
+    }
+    .sub-title-2 {
+        width: 460px;
+    }
+    .table .total-row td {
+        background-color: #c3e6cb !important;
+    }
+   
+}
+
+.table {
+    border: 1px solid lightgray;
+}
+
+.table thead th {
+    vertical-align: middle;
+}

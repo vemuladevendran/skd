@@ -22,7 +22,7 @@ export class SalesComponent implements OnInit {
     // salesform validators
     this.salesform = this.fb.group({
       customer: ['', Validators.required],
-      salesdate: [new Date(), Validators.required],
+      salesDate: [new Date(), Validators.required],
       invoiceNumber: ['', Validators.required],
       milk: this.fb.group({
         liters: [0, [Validators.required, Validators.min(0)]],

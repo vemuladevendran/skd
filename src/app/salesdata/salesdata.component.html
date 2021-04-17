@@ -20,7 +20,8 @@
                             <mat-form-field appearance="outline" class="w-100">
                                 <mat-label>customer</mat-label>
                                 <mat-select formControlName="customer">
-                                    <mat-option *ngFor="let c of userdata" [value]="c.id">{{c.customerName}}</mat-option>
+                                    <mat-option *ngFor="let c of userdata" [value]="c.id">{{c.customerName}}
+                                    </mat-option>
                                 </mat-select>
                             </mat-form-field>
                         </div>

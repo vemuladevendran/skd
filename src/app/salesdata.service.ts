@@ -6,8 +6,10 @@ import { Injectable } from '@angular/core';
 export class SalesdataService {
   // requiredSales: any;
   salesData: any[] = [];
+  customerSearchSales: any;
   // key1 = 'REQUIREDSALES';
-  key = 'SALESDATA';
+  key = 'SALES';
+  key2 = 'SALESDATA';
   constructor() { }
 
   // requiredSalesData(data: any): any {
@@ -25,6 +27,17 @@ export class SalesdataService {
     const data: any = localStorage.getItem(this.key);
     return JSON.parse(data);
   }
+
+  customerSearchResult(data: any): any {
+    this.customerSearchSales = data;
+    localStorage.setItem(this.key2, JSON.stringify(this. customerSearchSales));
+  }
+
+  getCustomerSearchResule(): any[] {
+    const requiredSales: any = localStorage.getItem(this.key2);
+    return JSON.parse(requiredSales);
+  }
+
 
 
 }

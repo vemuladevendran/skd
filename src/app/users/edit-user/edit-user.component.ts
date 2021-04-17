@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { promise } from 'protractor';
 import { UserService } from 'src/app/user.service';
 @Component({
   selector: 'app-edit-user',

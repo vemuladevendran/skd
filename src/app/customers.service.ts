@@ -5,8 +5,11 @@ import { Injectable } from '@angular/core';
 })
 export class CustomersService {
   customerlist: any[] = this.customers || [];
+  // customerName: any;
   key = 'CUSTOMER_DATA';
-  constructor() { }
+  constructor() {
+    // console.log(this.customers)
+   }
 
   addCustomerDetails(data: any): any {
     this.customerlist.push(data);
@@ -20,6 +23,13 @@ export class CustomersService {
   get customers(): any {
     const data: any = localStorage.getItem(this.key);
     return JSON.parse(data);
+  }
+
+
+  getCustomerName(id: any): any {
+    return this.customers.find((name: any) => {
+      return name.id === id;
+    });
   }
 }
 

@@ -1,0 +1,28 @@
+<div class="container-fluid login-container">
+    <div class="row">
+        <div class="col-12 d-flex justify-content-center align-items-center vh-100">
+            <!-- login -->
+            <form [formGroup]="loginform" (ngSubmit)="handleSubmit()">
+                <!-- mobile number -->
+                <div>
+                    <label class="fw-bold">mobile number</label>
+                    <div>
+                        <input type="tel" placeholder="1234567890" minlength="10" formControlName="mobileNumber">
+                    </div>
+                </div>
+                <div class="mt-2">
+                    <label class="fw-bold">
+                        password
+                    </label>
+                    <div>
+                      <input type="password" placeholder="password" formControlName="password">
+                    </div>
+                </div>
+                <div class="mt-2">
+                    <button type="button" class="btn btn-primary float-end mb-5"
+                    [disabled]="loginform.invalid">Login</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

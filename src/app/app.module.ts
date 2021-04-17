@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { Component, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule, Routes } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -21,13 +21,14 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
-import { SidenavbarComponent } from './sidenavbar/sidenavbar.component';
 import { SalesbillComponent } from './salesbill/salesbill.component';
+// import { LoginComponent } from './login/login/login.component';
 const routes: Routes = [
   {
     path: 'dashboard',
     component: DashboardComponent,
   },
+
   {
     path: 'sales',
     component: SalesComponent,
@@ -35,6 +36,10 @@ const routes: Routes = [
   {
     path: 'salesdata',
     component: SalesdataComponent,
+  },
+  {
+    path: 'salesbill',
+    component: SalesbillComponent,
   },
   {
     path: '**',
@@ -50,8 +55,7 @@ const routes: Routes = [
     NavbarComponent,
     SalesComponent,
     SalesdataComponent,
-    SidenavbarComponent,
-    SalesbillComponent
+    SalesbillComponent,
   ],
   imports: [
     BrowserModule,
